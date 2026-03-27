@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Dashboard</h2>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card p-3 bg-primary text-white">
+                <h4>Total Palabras</h4>
+                <h2>{{ total_palabras }}</h2>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card p-3 bg-success text-white">
+                <h4>Promedio Diario</h4>
+                <h2>{{ promedio }}</h2>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card p-3 bg-dark text-white">
+                <h4>Registros</h4>
+                <h2>{{ total_registros }}</h2>
+            </div>
+        </div>
+    </div>
+   
+
+    <h4>Palabras por Proyecto</h4>
+    <canvas id="grafico"></canvas>
+{{ nombres_json|json_script:"labels-data" }}
+{{ totales_json|json_script:"totales-data" }}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const labels = JSON.parse(document.getElementById('labels-data').textContent);
+    const dataValues = JSON.parse(document.getElementById('totales-data').textContent);
+
+    new Chart(document.getElementById('grafico'), {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Palabras',
+                data: dataValues
+            }]
+        }
+    });
+</script>
+
+{% endblock %}

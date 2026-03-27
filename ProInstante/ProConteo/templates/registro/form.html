@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Formulario</h2>
+
+<div class="card shadow">
+<div class="card-body">
+
+<form method="post">
+    {% csrf_token %}
+    
+    <div class="mb-3">
+        {{ form.proyecto.label_tag }}
+        {{ form.proyecto }}
+    </div>
+
+    <div class="mb-3">
+        {{ form.fecha.label_tag }}
+        {{ form.fecha }}
+    </div>
+
+    <div class="mb-3">
+        {{ form.palabras.label_tag }}
+        {{ form.palabras }}
+    </div>
+
+    <div class="mb-3">
+        {{ form.comentario.label_tag }}
+        {{ form.comentario }}
+    </div>
+
+    <button type="submit" class="btn btn-success">Guardar</button>
+    <a href="{% url 'lista' %}" class="btn btn-secondary">Cancelar</a>
+
+</form>
+
+</div>
+</div>
+
+{% endblock %}

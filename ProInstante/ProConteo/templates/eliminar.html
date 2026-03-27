@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Eliminar Registro</h2>
+
+<div class="alert alert-danger">
+    ¿Seguro que deseas eliminar este registro?
+</div>
+
+<ul>
+    <li><strong>Proyecto:</strong> {{ conteo.proyecto }}</li>
+    <li><strong>Fecha:</strong> {{ conteo.fecha }}</li>
+    <li><strong>Palabras:</strong> {{ conteo.palabras }}</li>
+</ul>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a href="{% url 'lista' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+
+{% endblock %}

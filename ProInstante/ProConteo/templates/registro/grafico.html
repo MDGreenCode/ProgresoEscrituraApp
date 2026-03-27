@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Progreso del Proyecto</h2>
+
+<canvas id="grafico"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+const labels = {{ labels|safe }};
+const esperado = {{ esperado|safe }};
+const real = {{ real|safe }};
+
+new Chart(document.getElementById('grafico'), {
+    type: 'line',
+    data: {
+        labels: labels,
+        datasets: [
+            {
+                label: 'Esperado',
+                data: esperado,
+                borderDash: [5,5]
+            },
+            {
+                label: 'Real',
+                data: real
+            }
+        ]
+    }
+});
+</script>
+
+{% endblock %}

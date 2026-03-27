@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between mb-3">
+    <h2>Conteo de Palabras</h2>
+    <a href="{% url 'nuevo' %}" class="btn btn-primary">+ Nuevo</a>
+</div>
+
+<div class="card shadow">
+<div class="card-body">
+
+<table class="table table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>Proyecto</th>
+            <th>Fecha</th>
+            <th>Palabras</th>
+            <th>Total Proyectos</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for d in datos %}
+        <tr>
+            <td>{{ d.proyecto }}</td>
+            <td>{{ d.fecha }}</td>
+            <td><span class="badge bg-success">{{ d.palabras }}</span></td>
+            <td>
+                {{ d.proyecto.total_palabras }} / {{ d.proyecto.meta_total }}
+            </td>
+            <td>
+                <a href="{% url 'editar' d.id %}" class="btn btn-sm btn-warning">Editar</a>
+                <a href="{% url 'eliminar' d.id %}" class="btn btn-sm btn-danger">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</div>
+</div>
+
+{% endblock %}
