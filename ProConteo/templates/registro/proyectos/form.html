@@ -12,58 +12,59 @@
 
 <form method="post">
     {% csrf_token %}
-
+    <div class="row">
     <!-- Nombre -->
-    <div class="mb-3">
-        <label class="form-label">Nombre</label>
-        {{ form.nombre }}
-    </div>
+        <div class="col-12 col-md-6 mb-3">
+            <label class="form-label">Nombre</label>
+            {{ form.nombre }}
+        </div>
 
-    <!-- Descripción -->
-    <div class="mb-3">
-        <label class="form-label">Descripción</label>
-        {{ form.descripcion }}
+        <!-- Descripción -->
+        <div class="col-12 col-md-6 mb-3">
+            <label class="form-label">Descripción</label>
+            {{ form.descripcion }}
+        </div>
     </div>
-
     <hr>
 
     <h5 class="mb-3">Metas</h5>
-
-    <!-- Meta diaria -->
-    <div class="mb-3">
-        <label class="form-label">Meta diaria (palabras)</label>
-        {{ form.meta_diaria }}
-        <div class="form-text">
-            Ejemplo: 1000 palabras por día
+    <div class="row">
+        <!-- Meta diaria -->
+        <div class="col-12 col-md-6 mb-3">
+            <label class="form-label">Meta diaria (palabras)</label>
+            {{ form.meta_diaria }}
+            <div class="form-text">
+                Ejemplo: 1000 palabras por día
+            </div>
         </div>
-    </div>
 
-    <!-- Meta total -->
-    <div class="mb-3">
-        <label class="form-label">Meta total</label>
-        {{ form.meta_total }}
-        <div class="form-text">
-            Ejemplo: 50000 palabras (una novela)
+        <!-- Meta total -->
+        <div class="col-12 col-md-6 mb-3">
+            <label class="form-label">Meta total</label>
+            {{ form.meta_total }}
+            <div class="form-text">
+                Ejemplo: 50000 palabras (una novela)
+            </div>
         </div>
     </div>
 <hr>
 
 <h5 class="mb-3">Fechas</h5>
-
 <div class="row">
-    <div class="col-md-6 mb-3">
+    <div class="col-12 col-md-6 mb-3">
         <label class="form-label">Fecha de inicio</label>
         {{ form.fecha_inicio }}
     </div>
 
-    <div class="col-md-6 mb-3">
+    <div class="col-12 col-md-6 mb-3">
         <label class="form-label">Fecha de finalización</label>
         {{ form.fecha_fin }}
     </div>
+
 </div>
     <div class="mt-4">
-        <button type="submit" class="btn btn-success">Guardar</button>
-        <a href="{% url 'proyectos' %}" class="btn btn-outline-secondary">Cancelar</a>
+        <button type="submit" class="btn btn-success w-100 w-md-auto mb-2">Guardar</button>
+        <a href="{% url 'proyectos' %}" class="btn btn-outline-secondary w-100 w-md-auto mb-2">Cancelar</a>
     </div>
 
 </form>

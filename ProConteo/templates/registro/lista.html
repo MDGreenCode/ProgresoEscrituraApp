@@ -10,7 +10,8 @@
 <div class="card shadow">
 <div class="card-body">
 
-<table class="table table-hover">
+<div class="table-responsive">
+    <table class="table table-hover">
     <thead class="table-dark">
         <tr>
             <th>Proyecto</th>
@@ -31,14 +32,14 @@
                 {{ d.proyecto.total_palabras }} / {{ d.proyecto.meta_total }}
             </td>
             <td>
-                <a href="{% url 'editar' d.id %}" class="btn btn-sm btn-warning">Editar</a>
-                <a href="{% url 'eliminar' d.id %}" class="btn btn-sm btn-danger">Eliminar</a>
+                <a href="{% url 'editar' d.id %}" class="btn btn-sm btn-warning w-100 w-md-auto mb-2">Editar</a>
+                <a href="{% url 'eliminar' d.id %}" class="btn btn-sm btn-danger w-100 w-md-auto mb-2">Eliminar</a>
             </td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
-
+</div>
 </div>
 </div>
 
