@@ -121,3 +121,12 @@ import os
 ALLOWED_HOSTS = ['*']
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+import dj_database_url
+import os
+
+DATABASES = {
+    'default': dj_database_url.config(
+        default=os.environ.get('postgresql://proinstantedb_user:HTSA2cfzSxI0C2m4KmgUJJXOfFGJrmoM@dpg-d746mu0gjchc73b2par0-a/proinstantedb')
+    )
+}
